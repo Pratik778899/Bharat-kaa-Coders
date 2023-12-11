@@ -13,3 +13,30 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.relative{
+  position: relative;
+  z-index: 10000000000000000000000;
+}
+
+.glow-round{
+  position: absolute;
+  background-color: #4fff1576;
+  width: 200px;
+  height: 150px;
+  filter: blur(120px);
+  top: -0px;
+  left: 30px;
+  /* z-index: 100000; */
+}
+
+.glow-back {
+  position: absolute;
+  background-color: #5d605e;
+  width: 500px;
+  height: 50px;
+  filter: blur(120px);
+  top: -50px;
+  left: 500px;
+  z-index: 100000;
+}
