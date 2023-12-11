@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 class Nav extends Component {
   render() {
     return (
-      <div className="flex justify-center items-center bg-main">
+      <div className="flex justify-center items-center bg-main font-family">
         <div className="glow-back"></div>
         <div className="nav-Main bg-main-color flex justify-center text-white gap-8 p-2 px-2 m-3 rounded-full relative items-center">
           <Link to="/">
