@@ -46,7 +46,7 @@ class Nav extends Component {
           </div>
           <div className="login-signup flex gap-2">
             <div className="bg-border-main px-3 py-1 text-black rounded-full font-semibold">
-              <Link to="/Login-In">Login In</Link>
+              <Link to="/Log-In">Login In</Link>
             </div>
             <div className="bg-border-main px-3 py-1 text-black rounded-full font-semibold ">
               <Link to="/Sign-Up">Sign Up</Link>
