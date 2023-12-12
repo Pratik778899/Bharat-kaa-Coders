@@ -39,7 +39,10 @@ class Nav extends Component {
           <div className="nav-Mid flex gap-5">
             <div className="hidden md:flex gap-5 text-sm text-zinc-300">
               <Link to="/1-v-1">1 VS 1</Link>
+              <Link to="/AboutUs">About Us</Link>
+              <Link to="/ContactUs">Contact Us</Link>
             </div>
+            
           </div>
           <div className="login-signup flex gap-2">
             <div className="bg-border-main px-3 py-1 text-black rounded-full font-semibold">
@@ -57,10 +60,12 @@ class Nav extends Component {
               Menu
             </button>
             {showDropdown && (
-              <div className="absolute top-full left-0 bg-main-color text-white rounded-md p-2 mt-1">
+              <div className="absolute top-full left-0 bg-main-color text-sm text-white rounded-md p-2 mt-1">
                 <Link to="/1-v-1" className="block py-1">
                   1 VS 1
                 </Link>
+                <Link to="/AboutUs">About Us</Link>
+                <Link to="/ContactUs">Contact Us</Link>
               </div>
             )}
           </div>
