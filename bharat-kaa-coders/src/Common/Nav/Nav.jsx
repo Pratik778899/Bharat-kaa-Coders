@@ -7,8 +7,11 @@ class Nav extends Component {
     super(props);
     this.state = {
       showDropdown: false,
+      isLogged: !!this.localDatabase,
     };
   }
+
+  localDatabase = localStorage.getItem("loggedInUser");
 
   toggleDropdown = () => {
     this.setState(prevState => ({
@@ -38,18 +41,19 @@ class Nav extends Component {
           </Link>
           <div className="nav-Mid flex gap-5">
             <div className="hidden md:flex gap-5 text-sm text-zinc-300">
-              <Link to="/1-v-1">1 VS 1</Link>
+              <Link to="/1-v-1">Question</Link>
               <Link to="/AboutUs">About Us</Link>
               <Link to="/ContactUs">Contact Us</Link>
             </div>
-            
           </div>
           <div className="login-signup flex gap-2">
             <div className="bg-border-main px-3 py-1 text-black rounded-full font-semibold">
-              <Link to="/Log-In">Login In</Link>
-            </div>
-            <div className="bg-border-main px-3 py-1 text-black rounded-full font-semibold ">
-              <Link to="/Sign-Up">Sign Up</Link>
+              {this.state.isLogged ? (
+                <Link to='/Profile'>Profile
+                </Link>
+              ) : (
+                <Link to="/Log-In">Join In</Link>
+              )}
             </div>
           </div>
           <div className="md:hidden relative">
@@ -62,10 +66,14 @@ class Nav extends Component {
             {showDropdown && (
               <div className="absolute top-full left-0 bg-main-color text-sm text-white rounded-md p-2 mt-1">
                 <Link to="/1-v-1" className="block py-1">
-                  1 VS 1
+                  Question
                 </Link>
-                <Link to="/AboutUs">About Us</Link>
-                <Link to="/ContactUs">Contact Us</Link>
+                <Link to="/AboutUs" className="block py-1">
+                  About Us
+                </Link>
+                <Link to="/ContactUs" className="block py-1">
+                  Contact Us
+                </Link>
               </div>
             )}
           </div>

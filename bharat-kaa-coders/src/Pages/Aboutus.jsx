@@ -4,7 +4,7 @@ const Aboutus = () => {
   return (
     <div className="flex justify-center md:mt-14 mt-9">
       <div className="glow-round"></div>
-      <div className="md:w-4/5 w-11/12 flex flex-col gap-4 md:gap-8 relative">
+      <div className="md:w-4/5 w-11/12 flex flex-col gap-4 md:gap-8">
         <h1 className="small-text-grade  text-2xl md:text-4xl font-semibold">
           About Us
         </h1>

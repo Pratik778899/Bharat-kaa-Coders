@@ -15,45 +15,32 @@ const Signup = () => {
     password: "",
   });
 
-  const isUserExists = selector && selector.some(user => user.email === SignupDetails.email);
+  const isUserExists =
+    selector && selector.some(user => user.email === SignupDetails.email);
 
   const handelValidation = e => {
     e.preventDefault();
     if (SignupDetails.email === "" || SignupDetails.password === "") {
-      toast.error("Please Enter Email and Password to Sign Up", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      displayToast("Please Enter Email and Password to Sign Up", "error");
     } else if (isUserExists) {
-      toast.error("User Already Exists, Please Use Another Email", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      displayToast("User Already Exists, Please Use Another Email", "error");
     } else {
       dispatch(signup(SignupDetails));
-      toast.success("Account Successfully Created", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      displayToast("Account Successfully Created", "success");
     }
+  };
+
+  const displayToast = (message, type) => {
+    toast[type](message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   const handleSignup = e => {
