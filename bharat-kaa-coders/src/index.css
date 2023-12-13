@@ -26,6 +26,13 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.small-text-grade {
+  background: radial-gradient(64.33% 60.33% at 60.16% 35.69%, #dcfdd0 0.89%, #ddf7d3 17.23%, #a8f18d 42.04%, #92e772 55.12%, #c2f2b0 71.54%, #63ca3e 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .card {
   border-radius: 20px;
   background: linear-gradient(153deg, rgba(255, 255, 255, 0.00) -341.94%, #121d10 95.11%);

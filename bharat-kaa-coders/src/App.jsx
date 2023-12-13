@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/1-v-1" element={<Questions />} />
           <Route path="/AboutUs" element={<Aboutus />} />
           <Route path="/ContactUs" element={<Contactus />} />
-          <Route path="/Login-In" element={<Login />} />
+          <Route path="/Log-In" element={<Login />} />
           <Route path="/Sign-Up" element={<Signup />} />
         </Routes>
       </Layout>
