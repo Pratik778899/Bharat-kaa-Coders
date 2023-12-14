@@ -43,7 +43,6 @@ class Nav extends Component {
               <Link to="/1-v-1">Question</Link>
               <Link to="/AboutUs">About Us</Link>
               <Link to="/ContactUs">Contact Us</Link>
-              <Link to="/Winner">Winner</Link>
             </div>
           </div>
           <div className="login-signup flex gap-2">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import StarIcon from "@mui/icons-material/Star";
 import CloseIcon from "@mui/icons-material/Close";
-const Winner = ({time}) => {
+const Loser = () => {
   const [toggledown, settoggledown] = useState(true);
   const handelclose = () => {
     settoggledown(false);
@@ -11,7 +11,7 @@ const Winner = ({time}) => {
     <div>
       {toggledown && (
         <div sx={{ maxWidth: 345 }} className="flex justify-center">
-          <div className="winner-section card p-6 text-white">
+          <div className="Loser-section card p-6 text-white">
             <div className="text-right" onClick={handelclose}>
               <CloseIcon sx={{ cursor: "pointer" }} />
             </div>
@@ -26,8 +26,8 @@ const Winner = ({time}) => {
 
             <hr style={{ borderWidth: 2 }} />
 
-            <h1 className="text-center font-semibold text-xl m-2">Winner</h1>
-            <h3 className="text-center">Your Time: {time}</h3>
+            <h1 className="text-center font-semibold text-xl m-2">Loser</h1>
+            <h3 className="text-center">Time Complete</h3>
           </div>
         </div>
       )}
@@ -35,4 +35,4 @@ const Winner = ({time}) => {
   );
 };
 
-export default Winner;
+export default Loser;

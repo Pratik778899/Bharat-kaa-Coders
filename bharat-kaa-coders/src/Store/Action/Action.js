@@ -26,9 +26,8 @@ export const questionNo = questionNo => {
   };
 };
 
-export const logged_out = logged_out => {
+export const logged_out = () => {
   return {
     type: Action.LOGGED_OUT,
-    logged_out: logged_out,
   };
 };

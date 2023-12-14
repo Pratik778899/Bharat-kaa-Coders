@@ -28,7 +28,6 @@ const App = () => {
           <Route path="/1-v-1" element={<Questions />} />
           <Route path="/AboutUs" element={<Aboutus />} />
           <Route path="/ContactUs" element={<Contactus />} />
-          <Route path="/Winner" element={<Winner />} />
           <Route path="/QuestionAns" element={<QuestionAndAns />} />
           {selector ? (
             <Route path="/Profile" element={<Profile />} />
