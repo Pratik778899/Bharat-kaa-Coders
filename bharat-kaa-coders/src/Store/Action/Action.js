@@ -2,6 +2,7 @@ export const Action = {
   SIGNUP: "SIGNUP",
   ISLOGGED: "ISLOGGED",
   QUESTION_NO: "QUESTION_NO",
+  LOGGED_OUT: "LOGGED_OUT"
 };
 
 export const signup = signupDetails => {
@@ -22,5 +23,12 @@ export const questionNo = questionNo => {
   return {
     type: Action.QUESTION_NO,
     questionNo: questionNo,
+  };
+};
+
+export const logged_out = logged_out => {
+  return {
+    type: Action.LOGGED_OUT,
+    logged_out: logged_out,
   };
 };

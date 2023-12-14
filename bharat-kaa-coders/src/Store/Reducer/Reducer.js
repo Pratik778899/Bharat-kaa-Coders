@@ -3,6 +3,7 @@ import { Action } from "../Action/Action";
 const initialState = {
   data: [],
   isLogged: !!localStorage.getItem("loggedInUser"),
+  logged_out: false,
   questionNo: 0,
 };
 
@@ -27,6 +28,11 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         questionNo: action.questionNo,
+      };
+    case Action.LOGGED_OUT:
+      return {
+        ...state,
+        isLogged: false,
       };
 
     default:
