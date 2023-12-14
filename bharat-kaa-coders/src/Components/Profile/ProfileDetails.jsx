@@ -1,5 +1,4 @@
 import React from "react";
-import CurrencyBitcoinIcon from "@mui/icons-material/CurrencyBitcoin";
 import DriveFileRenameOutlineTwoToneIcon from "@mui/icons-material/DriveFileRenameOutlineTwoTone";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";

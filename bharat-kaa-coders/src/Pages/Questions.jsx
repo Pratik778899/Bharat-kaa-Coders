@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const Questions = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handelIndex = i => {
     dispatch(questionNo(i));
-    navigate("/QuestionAns")
+    navigate("/QuestionAns");
     // console.log(i);
   };
   return (
@@ -25,8 +25,7 @@ const Questions = () => {
             <div
               key={i}
               onClick={() => handelIndex(i)}
-              className="text-white text-sm md:text-lg border-solid hover:shadow-sm hover:shadow-white
-                             border-gray-500 border-2 rounded-md p-2 md:p-5 w-11/12 md:w-5/5 cursor-pointer "
+              className="text-white text-sm md:text-lg border-solid hover:shadow-sm hover:shadow-white border-gray-500 border-2 rounded-md p-2 md:p-5 w-11/12 md:w-96 cursor-pointer "
             >
               <p>{question.title}</p>
             </div>
