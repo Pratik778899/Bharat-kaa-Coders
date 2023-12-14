@@ -12,6 +12,7 @@ import Aboutus from "./Pages/Aboutus";
 import Profile from "./Pages/Profile";
 import { useSelector } from "react-redux";
 import QuestionAndAns from "./Pages/QuestionAndAns";
+import Winner from "./Components/result/Winner";
 
 const App = () => {
   const selector = useSelector(state => state.Reducer.isLogged);
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/1-v-1" element={<Questions />} />
           <Route path="/AboutUs" element={<Aboutus />} />
           <Route path="/ContactUs" element={<Contactus />} />
+          <Route path="/Winner" element={<Winner />} />
           <Route path="/QuestionAns" element={<QuestionAndAns />} />
           {selector ? (
             <Route path="/Profile" element={<Profile />} />
