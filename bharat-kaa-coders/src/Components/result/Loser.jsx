@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import StarIcon from "@mui/icons-material/Star";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
+
+
 const Loser = () => {
+  const navigate = useNavigate()
   const [toggledown, settoggledown] = useState(true);
   const handelclose = () => {
     settoggledown(false);
+    navigate("/")
   };
   return (
     <div>

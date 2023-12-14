@@ -9,8 +9,8 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useSelector } from "react-redux";
 import { database } from "../Database/Database";
-import Winner from "../Components/result/Winner";
-import Loser from "../Components/result/Loser";
+import Winner from "../Components/Result/Winner";
+import Loser from "../Components/Result/Loser";
 
 const QuestionAndAns = () => {
   const selector = useSelector(state => state.Reducer.questionNo);
@@ -37,7 +37,7 @@ const QuestionAndAns = () => {
   };
 
   let timer;
-  
+
   useEffect(() => {
     timer = setInterval(() => {
       if (totalSeconds > 0 && !timerFinished) {
@@ -98,23 +98,27 @@ const QuestionAndAns = () => {
 
   return (
     <>
-      <div className="index">
+      <div className="index ">
         {showWinner && <Winner time={`${minutes}:${seconds}`} />}
       </div>
       <div className="index">{loser && !showWinner && <Loser />}</div>
-      <div className="flex min-h-full items-center justify-center text-white ">
+      <div className="flex min-h-full items-center justify-center text-white">
         <div className="glow-round absolute z-0"></div>
-        <div className="flex w-full h-screen card rounded-lg shadow-lg p-6 m-6  z-10">
-          <div className="w-1/2 pr-4">
-            <h1 className="text-xl font-bold mb-4">Question</h1>
-            <h1>
+        <div className="flex w-full h-screen card rounded-lg shadow-lg p-6 m-6 z-10 flex-col sm:flex-row">
+          <div className="w-full sm:w-1/2 pr-4">
+            <h1 className="text-xl font-bold mb-4 small-text-grade">
+              Question
+            </h1>
+            <h1 className="small-text-grade text-4xl">
               Time Left: {minutes.toString().padStart(2, "0")} min{" "}
               {seconds.toString().padStart(2, "0")} sec
             </h1>
             <pre className="p-4 rounded-lg text-white">{question}</pre>
           </div>
-          <div className="w-1/2 pl-4 relative">
-            <h1 className="text-xl font-bold mb-4">Your Code</h1>
+          <div className="w-full sm:w-1/2 pl-4 relative">
+            <h1 className="text-xl font-bold mb-4 small-text-grade">
+              Your Code
+            </h1>
             <div style={{ height: "65%" }}>
               <Editor
                 height="100%"
@@ -165,10 +169,10 @@ const QuestionAndAns = () => {
             </div>
           </div>
         </div>
-        <div className="glow-round-right -z-50"></div>
         <div className="relative">
           <ToastContainer />
         </div>
+        <div className="glow-round-right"></div>
       </div>
     </>
   );
