@@ -11,7 +11,7 @@ const Questions = () => {
         </div>
         <div className="gap-4 item-center flex justify-center flex-col items-center">
           <div
-            className="text-white text-sm md:text-lg border-solid hover:shadow-sm hover:shadow-white
+            className="text-white text-sm md:text-lg border-solid hover:shadow-sm md:hover:border-gray-700
                              border-gray-500 border-2 rounded-md p-2 md:p-5 w-11/12 md:w-5/5 cursor-pointer "
           >
             <p>
@@ -20,7 +20,7 @@ const Questions = () => {
             </p>
           </div>
           <div
-            className="text-white text-sm md:text-lg border-solid hover:shadow-sm hover:shadow-white
+            className="text-white text-sm md:text-lg border-solid hover:shadow-sm  md:hover:border-gray-700
                              border-gray-500 border-2 rounded-md p-2 md:p-5 w-11/12 md:w-5/5  cursor-pointer "
           >
             <p>
@@ -29,7 +29,7 @@ const Questions = () => {
             </p>
           </div>
           <div
-            className="text-white text-sm md:text-lg border-solid hover:shadow-sm hover:shadow-white
+            className="text-white text-sm md:text-lg border-solid hover:shadow-sm md:hover:border-gray-700
                              border-gray-500 border-2 rounded-md p-2 md:p-5 w-11/12 md:w-5/5  cursor-pointer "
           >
             <p>
@@ -38,7 +38,7 @@ const Questions = () => {
             </p>
           </div>
           <div
-            className="text-white text-sm md:text-lg border-solid hover:shadow-sm hover:shadow-white
+            className="text-white text-sm md:text-lg border-solid hover:shadow-sm md:hover:border-gray-700
                              border-gray-500 border-2 rounded-md p-2 md:p-5 w-11/12 md:w-5/5  cursor-pointer "
           >
             <p>
@@ -47,7 +47,7 @@ const Questions = () => {
             </p>
           </div>
           <div
-            className="text-white text-sm md:text-lg border-solid hover:shadow-sm hover:shadow-white
+            className="text-white text-sm md:text-lg border-solid hover:shadow-sm md:hover:border-gray-700
                              border-gray-500 border-2 rounded-md p-2 md:p-5 w-11/12 md:w-5/5  cursor-pointer "
           >
             <p>

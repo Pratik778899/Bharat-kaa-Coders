@@ -83,3 +83,10 @@ background: linear-gradient(158deg, #dcfdd0 -43.27%, #adf194 -21.24%, #a8f18d 12
   z-index: 100000;
 }
 
+
+.badges{
+  clip-path: polygon(50% 0%, 100% 30%, 100% 70%, 50% 100%, 0% 70%, 0% 30%);
+  width: 10rem;
+  height: 10rem;
+  
+}
