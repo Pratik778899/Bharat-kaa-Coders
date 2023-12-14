@@ -2,6 +2,8 @@ import { Action } from "../Action/Action";
 
 const initialState = {
   data: [],
+  isLogged: !!localStorage.getItem("loggedInUser"),
+  questionNo: 0,
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -14,6 +16,17 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         data: updatedData,
+      };
+    case Action.ISLOGGED:
+      localStorage.getItem("loggedInUser");
+      return {
+        ...state,
+        isLogged: true,
+      };
+    case Action.QUESTION_NO:
+      return {
+        ...state,
+        questionNo: action.questionNo,
       };
 
     default:

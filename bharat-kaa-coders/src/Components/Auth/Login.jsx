@@ -5,9 +5,12 @@ import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { isLogged } from "../../Store/Action/Action";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [logDets, setLogDets] = useState({
     email: "",
     password: "",
@@ -37,6 +40,7 @@ const Login = () => {
     } else {
       displayToast("Account Login Successfully", "success");
       navigate("/");
+      dispatch(isLogged(true));
       localStorage.setItem(
         "loggedInUser",
         JSON.stringify({

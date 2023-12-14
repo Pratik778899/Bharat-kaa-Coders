@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Layout from "./Layout";
@@ -10,10 +10,14 @@ import Questions from "./Pages/Questions";
 import Contactus from "./Pages/Contactus";
 import Aboutus from "./Pages/Aboutus";
 import Profile from "./Pages/Profile";
+import { useSelector } from "react-redux";
+import QuestionAndAns from "./Pages/QuestionAndAns";
 
 const App = () => {
-  const localDatabase = localStorage.getItem("loggedInUser");
-  const [isLogged, setIsLogged] = useState(!!localDatabase);
+  const selector = useSelector(state => state.Reducer.isLogged);
+  console.log(selector);
+  // const localDatabase = localStorage.getItem("loggedInUser");
+  // const [isLogged, setIsLogged] = useState(!!localDatabase);
 
   return (
     <Router>
@@ -23,7 +27,8 @@ const App = () => {
           <Route path="/1-v-1" element={<Questions />} />
           <Route path="/AboutUs" element={<Aboutus />} />
           <Route path="/ContactUs" element={<Contactus />} />
-          {isLogged ? (
+          <Route path="/QuestionAns" element={<QuestionAndAns />} />
+          {selector ? (
             <Route path="/Profile" element={<Profile />} />
           ) : (
             <>

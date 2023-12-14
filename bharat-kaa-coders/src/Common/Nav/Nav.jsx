@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import CodeIcon from "@mui/icons-material/Code";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showDropdown: false,
-      isLogged: !!this.localDatabase,
     };
   }
-
-  localDatabase = localStorage.getItem("loggedInUser");
 
   toggleDropdown = () => {
     this.setState(prevState => ({
@@ -21,6 +19,7 @@ class Nav extends Component {
 
   render() {
     const { showDropdown } = this.state;
+    const { isLogged } = this.props;
 
     return (
         <div className="flex justify-center items-center bg-main font-family">
@@ -48,7 +47,7 @@ class Nav extends Component {
             </div>
             <div className="login-signup flex gap-2">
               <div className="bg-border-main px-3 py-1 text-black rounded-full font-semibold">
-                {this.state.isLogged ? (
+                {isLogged ? (
                   <Link to='/Profile'>Profile
                   </Link>
                 ) : (
@@ -84,4 +83,10 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+const mapStateToProps = state => {
+  return {
+    isLogged: state.Reducer.isLogged 
+  };
+};
+
+export default connect(mapStateToProps)(Nav);
