@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Welcome from "../../Common/Welcome/Welcome";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { isLogged } from "../../Store/Action/Action";
+import { isLogged, displayToastAction } from "../../Store/Action/Action";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,30 +15,84 @@ const Login = () => {
     email: "",
     password: "",
   });
-
   const selector = useSelector(state => state.Reducer.data);
   let localDatabase = JSON.parse(localStorage.getItem("userDatabase"));
   const localDatabaseValidate = localDatabase.find(
     user => user.email === logDets.email
   );
   const foundUser = selector.find(user => user.email === logDets.email);
+  // const toastData = useSelector(state => state.Reducer.toast);
+  // console.log(toastData);
+
+  // const handelValidation = e => {
+  //   e.preventDefault();
+
+  //   if (logDets.email === "" || logDets.password === "") {
+  //     displayToast("Please Enter Email and Password to Log In", "error");
+  //   } else if (!foundUser && !localDatabaseValidate) {
+  //     displayToast("User Does Not Exist, Please Sign Up", "error");
+  //   } else if (foundUser && foundUser.password !== logDets.password) {
+  //     displayToast("Password Is Wrong", "error");
+  //   } else if (
+  //     localDatabaseValidate &&
+  //     localDatabaseValidate.password !== logDets.password
+  //   ) {
+  //     displayToast("Password Is Wrong", "error");
+  //   } else {
+  //     displayToast("Account Login Successfully", "success");
+  //     navigate("/");
+  //     dispatch(isLogged(true));
+  //     localStorage.setItem(
+  //       "loggedInUser",
+  //       JSON.stringify({
+  //         email: logDets.email,
+  //         password: logDets.password,
+  //       })
+  //     );
+  //   }
+  // };
+
+  // const displayToast = (message, type) => {
+  //   toast[type](message, {
+  //     position: "top-right",
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "dark",
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   if (toastData && toast[toastData.type]) {
+  //     toast[toastData.type](toastData.message);
+  //     // Dispatch to reset the toast state after displaying
+  //     dispatch(displayToastAction(null, null));
+  //   }
+  // }, [toastData, dispatch]);
 
   const handelValidation = e => {
     e.preventDefault();
 
     if (logDets.email === "" || logDets.password === "") {
-      displayToast("Please Enter Email and Password to Log In", "error");
+      dispatch(
+        displayToastAction("Please Enter Email and Password to Log In", "error")
+      );
     } else if (!foundUser && !localDatabaseValidate) {
-      displayToast("User Does Not Exist, Please Sign Up", "error");
+      dispatch(
+        displayToastAction("User Does Not Exist, Please Sign Up", "error")
+      );
     } else if (foundUser && foundUser.password !== logDets.password) {
-      displayToast("Password Is Wrong", "error");
+      dispatch(displayToastAction("Password Is Wrong", "error"));
     } else if (
       localDatabaseValidate &&
       localDatabaseValidate.password !== logDets.password
     ) {
-      displayToast("Password Is Wrong", "error");
+      dispatch(displayToastAction("Password Is Wrong", "error"));
     } else {
-      displayToast("Account Login Successfully", "success");
+      dispatch(displayToastAction("Account Login Successfully", "success"));
       navigate("/");
       dispatch(isLogged(true));
       localStorage.setItem(
@@ -51,19 +105,6 @@ const Login = () => {
     }
   };
 
-  const displayToast = (message, type) => {
-    toast[type](message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-
   const handelLogin = e => {
     const { name, value } = e.target;
     setLogDets(prevState => ({
@@ -74,7 +115,7 @@ const Login = () => {
 
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className="flex bg-main min-h-full flex-1 justify-center px-6 py-12 lg:px-8 text-white items-center flex-col-reverse md:flex-row">
         <div className="glow-round"></div>
 

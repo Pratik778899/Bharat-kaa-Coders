@@ -5,6 +5,17 @@ const initialState = {
   isLogged: !!localStorage.getItem("loggedInUser"),
   logged_out: false,
   questionNo: 0,
+  toast: null,
+  toastOptions: {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  },
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -33,6 +44,14 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         isLogged: false,
+      };
+    case Action.DISPLAY_TOAST:
+      return {
+        ...state,
+        toast: {
+          message: action.payload.message,
+          type: action.payload.type,
+        },
       };
 
     default:

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -31,6 +31,7 @@ const QuestionAndAns = () => {
   const [seconds, setSeconds] = useState(totalSeconds % 60);
 
   const handleUserCodeChange = newValue => {
+    console.log(newValue)
     setUserCode(newValue);
     runTests(newValue, setUserResults, 1);
     setconditionOfButton(true);
@@ -61,6 +62,7 @@ const QuestionAndAns = () => {
 
   const runTests = (code, setResults, user) => {
     const testCases = filterData[0].testCase;
+    console.log(testCases)
 
     const newResults = testCases.map((testCase, index) => {
       let result;
@@ -124,7 +126,8 @@ const QuestionAndAns = () => {
                 height="100%"
                 defaultLanguage="javascript"
                 value={userCode}
-                defaultValue={filterData[0].question}
+                // defaultValue={filterData[0].question}
+                defaultValue={`// Write Your Code Here`}
                 onChange={handleUserCodeChange}
                 theme="vs-dark"
               />
@@ -170,7 +173,7 @@ const QuestionAndAns = () => {
           </div>
         </div>
         <div className="relative">
-          <ToastContainer />
+          {/* <ToastContainer /> */}
         </div>
         <div className="glow-round-right"></div>
       </div>
