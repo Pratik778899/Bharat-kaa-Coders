@@ -19,13 +19,11 @@ export const database = [
     timer: 10,
   },
   {
-    title: "Simple Array Sum",
+    title: "A Very Big Sum",
     diffulcity: "Easy",
-    question: `// Given an array of integers, find the sum of its elements.\nFor example, if the array ar=[1,2,3],1+2+3=6 , so return 6.\n\nExplanation\n\nWe print the sum of the array's \n\nelements:1+2+3+4+10+11=31 .`,
-    testCase: [
-      { input: [ar[0].input1], output: 5000000015 },
-    ],
-    timer: 5,
+    question: `In this challenge, you are required to calculate and print the sum of the elements in\nan array, keeping in mind that some of those integers may be quite large.\n\nThe range of the 32-bit integer is\nWhen we add several integer values, the resulting sum might exceed the above\nrange. You might need to use long int C/C++/Java to store such sums.`,
+    testCase: [{ input: [ar[0].input1], output: 5000000015 }],
+    timer: 15,
   },
   {
     title: "Two Sum 3",

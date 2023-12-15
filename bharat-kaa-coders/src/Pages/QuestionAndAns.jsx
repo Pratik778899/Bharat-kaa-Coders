@@ -31,7 +31,7 @@ const QuestionAndAns = () => {
   const [seconds, setSeconds] = useState(totalSeconds % 60);
 
   const handleUserCodeChange = newValue => {
-    console.log(newValue)
+    // console.log(newValue);
     setUserCode(newValue);
     runTests(newValue, setUserResults, 1);
     setconditionOfButton(true);
@@ -62,7 +62,7 @@ const QuestionAndAns = () => {
 
   const runTests = (code, setResults, user) => {
     const testCases = filterData[0].testCase;
-    console.log(testCases)
+    // console.log(testCases);
 
     const newResults = testCases.map((testCase, index) => {
       let result;
@@ -92,10 +92,10 @@ const QuestionAndAns = () => {
       toast.success(`Congratulations! You're the winner!`, {});
       setShowWinner(true);
       setTimerFinished(true);
+      clearInterval(timer);
     } else {
       toast.error(`You did not pass all test cases. Try again!`, {});
     }
-    clearInterval(timer);
   };
 
   return (
@@ -106,7 +106,7 @@ const QuestionAndAns = () => {
       <div className="index">{loser && !showWinner && <Loser />}</div>
       <div className="flex min-h-full items-center justify-center text-white">
         <div className="glow-round absolute z-0"></div>
-        <div className="flex w-full h-screen card rounded-lg shadow-lg p-6 m-6 z-10 flex-col sm:flex-row">
+        <div className="flex w-full min-h-screen card rounded-lg shadow-lg p-6 m-6 z-10 flex-col sm:flex-row">
           <div className="w-full sm:w-1/2 pr-4">
             <h1 className="text-xl font-bold mb-4 small-text-grade">
               Question
@@ -115,13 +115,13 @@ const QuestionAndAns = () => {
               Time Left: {minutes.toString().padStart(2, "0")} min{" "}
               {seconds.toString().padStart(2, "0")} sec
             </h1>
-            <pre className="p-4 rounded-lg text-white">{question}</pre>
+            <pre className="p-4 rounded-lg break-words whitespace-pre-wrap text-white">{question}</pre>
           </div>
           <div className="w-full sm:w-1/2 pl-4 relative">
             <h1 className="text-xl font-bold mb-4 small-text-grade">
               Your Code
             </h1>
-            <div style={{ height: "65%" }}>
+            <div style={{ height: "55vh"}}>
               <Editor
                 height="100%"
                 defaultLanguage="javascript"
@@ -172,9 +172,7 @@ const QuestionAndAns = () => {
             </div>
           </div>
         </div>
-        <div className="relative">
-          {/* <ToastContainer /> */}
-        </div>
+        {/* <div className="relative"><ToastContainer /></div> */}
         <div className="glow-round-right"></div>
       </div>
     </>
