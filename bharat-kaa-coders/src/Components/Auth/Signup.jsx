@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Welcome from "../../Common/Welcome/Welcome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signup } from "../../Store/Action/Action";
-import { ToastContainer, toast } from "react-toastify";
+import { displayToastAction, signup } from "../../Store/Action/Action";
 import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const selector = useSelector(state => state.Reducer.data);
   // console.log(selector);
   const [SignupDetails, setSignupDetails] = useState({
@@ -17,31 +17,46 @@ const Signup = () => {
 
   const isUserExists =
     selector && selector.some(user => user.email === SignupDetails.email);
+  let localDatabase = JSON.parse(localStorage.getItem("userDatabase"));
+  const localDatabaseValidate = localDatabase.find(
+    user => user.email === SignupDetails.email
+  );
 
   const handelValidation = e => {
     e.preventDefault();
     if (SignupDetails.email === "" || SignupDetails.password === "") {
-      displayToast("Please Enter Email and Password to Sign Up", "error");
-    } else if (isUserExists) {
-      displayToast("User Already Exists, Please Use Another Email", "error");
+      dispatch(
+        displayToastAction(
+          "Please Enter Email and Password to Sign Up",
+          "error"
+        )
+      );
+    } else if (isUserExists || localDatabaseValidate) {
+      dispatch(
+        displayToastAction(
+          "User Already Exists, Please Use Another Email",
+          "error"
+        )
+      );
     } else {
       dispatch(signup(SignupDetails));
-      displayToast("Account Successfully Created", "success");
+      dispatch(displayToastAction("Account Successfully Created", "success"));
+      navigate("/Log-In")
     }
   };
 
-  const displayToast = (message, type) => {
-    toast[type](message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
+  // const displayToast = (message, type) => {
+  //   toast[type](message, {
+  //     position: "top-right",
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "dark",
+  //   });
+  // };
 
   const handleSignup = e => {
     e.preventDefault();
@@ -54,7 +69,7 @@ const Signup = () => {
 
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className="flex bg-main min-h-full flex-1 justify-center px-6 py-12 lg:px-8 text-white items-center flex-col-reverse md:flex-row">
         <div className="glow-round"></div>
 

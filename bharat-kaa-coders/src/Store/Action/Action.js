@@ -2,7 +2,8 @@ export const Action = {
   SIGNUP: "SIGNUP",
   ISLOGGED: "ISLOGGED",
   QUESTION_NO: "QUESTION_NO",
-  LOGGED_OUT: "LOGGED_OUT"
+  LOGGED_OUT: "LOGGED_OUT",
+  DISPLAY_TOAST: "DISPLAY_TOAST",
 };
 
 export const signup = signupDetails => {
@@ -31,3 +32,8 @@ export const logged_out = () => {
     type: Action.LOGGED_OUT,
   };
 };
+
+export const displayToastAction = (message, type) => ({
+  type: Action.DISPLAY_TOAST,
+  payload: { message, type },
+});

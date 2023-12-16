@@ -10,7 +10,7 @@ const Loser = () => {
   const [toggledown, settoggledown] = useState(true);
   const handelclose = () => {
     settoggledown(false);
-    navigate("/")
+    navigate("/Question")
   };
   return (
     <div>
