@@ -11,7 +11,7 @@ const Winner = ({ time }) => {
     settoggledown(false);
     navigate("/Question");
   };
-  
+
   return (
     <div>
       {toggledown && (
