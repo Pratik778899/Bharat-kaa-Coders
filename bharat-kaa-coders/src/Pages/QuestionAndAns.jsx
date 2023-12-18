@@ -9,8 +9,8 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useSelector } from "react-redux";
 import { database } from "../Database/Database";
-import Winner from "../../src/Components/Result/Winner"
-import Loser from "../../../bharat-kaa-coders/src/Components/Result/Loser"
+import Winner from "../Components/Result/Winner";
+import Loser from "../Components/Result/Loser";
 
 const QuestionAndAns = () => {
   const selector = useSelector(state => state.Reducer.questionNo);
