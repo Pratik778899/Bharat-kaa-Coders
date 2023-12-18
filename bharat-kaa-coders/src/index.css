@@ -98,3 +98,8 @@ background: linear-gradient(158deg, #dcfdd0 -43.27%, #adf194 -21.24%, #a8f18d 12
   height: 10rem;
   
 } */
+
+
+::-webkit-scrollbar{
+  display: none;
+}
